@@ -167,6 +167,8 @@ export type AnyMediaMessageContent = (
 			jpegThumbnail?: string
 	  } & Mentionable &
 			Contextable &
+			Buttonable &
+			Templatable &
 			WithDimensions)
 	| ({
 			video: WAMediaUpload
@@ -177,6 +179,8 @@ export type AnyMediaMessageContent = (
 			ptv?: boolean
 	  } & Mentionable &
 			Contextable &
+			Buttonable &
+			Templatable &
 			WithDimensions)
 	| {
 			audio: WAMediaUpload
@@ -194,7 +198,9 @@ export type AnyMediaMessageContent = (
 			mimetype: string
 			fileName?: string
 			caption?: string
-	  } & Contextable)
+	  } & Contextable &
+			Buttonable &
+			Templatable)
 ) & { mimetype?: string } & Editable
 
 export type ButtonReplyInfo = {
@@ -221,12 +227,17 @@ export type AnyRegularMessageContent = (
 			linkPreview?: WAUrlInfo | null
 	  } & Mentionable &
 			Contextable &
+			Buttonable &
+			Templatable &
+			Listable &
 			Editable)
 	| AnyMediaMessageContent
 	| ({
 			poll: PollMessageOptions
 	  } & Mentionable &
 			Contextable &
+			Buttonable &
+			Templatable &
 			Editable)
 	| {
 			contacts: {
